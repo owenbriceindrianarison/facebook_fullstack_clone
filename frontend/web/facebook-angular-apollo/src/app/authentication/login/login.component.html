@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="login-container flex">
+    <div class="bloc-left flex flex-center flex-align-center">
+      <div class="content flex flex-column">
+        <picture>
+          <img src="./assets/icons/facebook.svg" />
+        </picture>
+        <h2>
+          Avec Facebook, partagez et restez en contact avec votre entourage.
+        </h2>
+      </div>
+    </div>
+    <div class="bloc-right flex flex-column flex-align-center">
+      <div class="login flex flex-align-center flex-center">
+        <div
+          class="login-form mt-5 flex flex-column flex-align-center flex-center"
+        >
+          <form>
+            <input
+              class="mb-3"
+              placeholder="Adresse e-mail ou numéro de tél."
+            />
+            <input class="mb-4" placeholder="Mot de passe" />
+            <button class="btn primary mb-4">Se connecter</button>
+          </form>
+
+          <div class="mb-5"><a>Mot de passe oublié ?</a></div>
+          <hr class="mb-5" />
+          <button
+            class="btn secondary fit-content"
+            (click)="openRegisterForm()"
+          >
+            Créer nouveau compte
+          </button>
+        </div>
+      </div>
+      <div class="space-pro mt-5">
+        <a class="pro-link">Créer une Page</a>
+        pour la célébrité, une marque ou une entreprise
+      </div>
+    </div>
+  </div>
+</div>

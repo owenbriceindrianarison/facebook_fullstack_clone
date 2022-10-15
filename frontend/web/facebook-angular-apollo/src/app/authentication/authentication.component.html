@@ -1,0 +1,5 @@
+<fb-login (showRegisterEvent)="toogleRegister($event)"></fb-login>
+<fb-register
+  *ngIf="showRegister"
+  (showRegisterEvent)="toogleRegister($event)"
+></fb-register>

@@ -1,0 +1,71 @@
+<div class="register">
+  <div class="container">
+    <div class="modal">
+      <div class="header flex">
+        <div class="title">
+          <div class="title-text">S'inscrire</div>
+          <div class="title-description">C'est rapide et facile</div>
+        </div>
+        <div class="close" (click)="closeRegister()">
+          <img src="./assets/icons/icons-effacer-30.svg" alt="close" />
+        </div>
+      </div>
+      <hr />
+      <div class="body">
+        <form
+          [formGroup]="signupForm"
+          (ngSubmit)="onSubmit()"
+          class="register-form flex flex-column mb-3"
+        >
+          <div class="data-name mt-2">
+            <input
+              formControlName="firstname"
+              placeholder="Prénom"
+              class="mr-md-1"
+              [ngClass]="{
+                error:
+                  !signupForm.get('firstname')?.valid &&
+                  signupForm.get('firstname')?.touched
+              }"
+            />
+            <input
+              formControlName="lastname"
+              placeholder="Nom"
+              class="ml-md-1"
+              [ngClass]="{
+                error:
+                  !signupForm.get('lastname')?.valid &&
+                  signupForm.get('lastname')?.touched
+              }"
+            />
+          </div>
+          <div class="data-user">
+            <input
+              formControlName="email"
+              class="mb-2"
+              placeholder="Adresse e-mail ou numéro de tél."
+              [ngClass]="{
+                error:
+                  !signupForm.get('email')?.valid &&
+                  signupForm.get('email')?.touched
+              }"
+            />
+            <input
+              formControlName="password"
+              type="password"
+              class="mb-2"
+              placeholder="Mot de passe"
+              [ngClass]="{
+                error:
+                  !signupForm.get('password')?.valid &&
+                  signupForm.get('password')?.touched
+              }"
+            />
+          </div>
+
+          <button class="btn secondary fit-content submit">S'inscrire</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
