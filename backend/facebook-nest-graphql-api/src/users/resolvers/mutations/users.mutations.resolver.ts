@@ -1,5 +1,5 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { Public } from 'src/auth/guards/jwt-auth.guard';
+import { Public } from 'src/auth/current-user.decorator';
 import { CreateUserInput } from 'src/users/dto/input/create-user-input.dto';
 import { CreateUserOutput } from 'src/users/dto/output/create-user-output.dto';
 import { User } from 'src/users/models/user.model';

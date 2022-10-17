@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from 'src/users/users.service';
 import * as bcrypt from 'bcrypt';
 import { User } from 'src/users/models/user.model';
@@ -20,11 +20,12 @@ export class AuthService {
 
   async validateUser(email: string, password: string): Promise<any> {
     const user = await this.userService.getUser(email);
-    if (user && bcrypt.compare(password, user.password)) {
+    const passwordMatch = await bcrypt.compare(password, user.password);
+    if (user && passwordMatch) {
       const { password, ...result } = user;
       return result;
     }
-    return null;
+    throw new UnauthorizedException('Credentials are not valid.');
   }
 
   async login(user: User) {
