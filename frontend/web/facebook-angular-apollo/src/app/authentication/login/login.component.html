@@ -15,12 +15,17 @@
         <div
           class="login-form mt-5 flex flex-column flex-align-center flex-center"
         >
-          <form>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
             <input
+              formControlName="email"
               class="mb-3"
               placeholder="Adresse e-mail ou numéro de tél."
             />
-            <input class="mb-4" placeholder="Mot de passe" />
+            <input
+              formControlName="password"
+              class="mb-4"
+              placeholder="Mot de passe"
+            />
             <button class="btn primary mb-4">Se connecter</button>
           </form>
 

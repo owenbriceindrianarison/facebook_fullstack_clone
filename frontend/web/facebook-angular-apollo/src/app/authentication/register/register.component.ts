@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core'
 import { FormControl, FormGroup, Validators } from '@angular/forms'
+import { AuthService } from '../auth.service'
 
 @Component({
   selector: 'fb-register',
@@ -16,12 +17,14 @@ export class RegisterComponent implements OnInit {
     password: new FormControl(null, Validators.required),
   })
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.signupForm)
+    const { email, firstname, lastname, password } = this.signupForm.value
+    this.authService.createUser({ email, lastname, password, firstname })
   }
 
   closeRegister() {
